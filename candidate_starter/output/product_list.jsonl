@@ -1,0 +1,2 @@
+{"product_id":"demo-001","product_url":"https://example.test/products/demo-dress","product_name":"Demo satin dress","fixture":"examples/fixtures/product.html","category_id":"demo-dresses","category_name":"Dresses"}
+{"product_id":"demo-002","product_url":"https://example.test/products/demo-slip-dress","product_name":"Demo slip dress","fixture":"examples/fixtures/product_2.html","category_id":"demo-dresses","category_name":"Dresses"}
