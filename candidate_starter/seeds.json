@@ -1,8 +1,22 @@
 [
   {
-    "category_id": "demo-dresses",
-    "category_name": "Dresses",
-    "category_url": "https://example.test/collections/dresses",
-    "fixture": "examples/fixtures/category.html"
+    "category_id": "dress_3",
+    "category_name": "Dress3",
+    "category_url": "https://evaless.com/collections/dress-3"
+  },
+  {
+    "category_id": "sweatshirt",
+    "category_name": "Sweatshirt",
+    "category_url": "https://evaless.com/collections/sweatshirt"
+  },
+  {
+    "category_id": "sweaters-5",
+    "category_name": "Sweaters5",
+    "category_url": "https://evaless.com/collections/sweaters-5"
+  },
+  {
+    "category_id": "shirt?oquery=--7",
+    "category_name": "Shirt?oquery=--7",
+    "category_url": "https://evaless.com/collections/shirt?oquery=--7------"
   }
 ]
