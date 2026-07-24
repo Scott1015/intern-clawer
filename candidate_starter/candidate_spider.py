@@ -21,13 +21,13 @@ class CandidateSpider(BaseSpider):
 
     def __init__(self, project_dir: str):
         super().__init__(project_dir)
-        # 新增：持久的浏览器对象
+        # 持久的浏览器对象
         self._browser = None
 
     def _close_subscribe_popup(self, page):
-        """关闭可能出现的订阅弹窗"""
+        """关闭可能出现的弹窗"""
         try:
-            # 查找弹窗中的关闭按钮（X）
+            # 查找弹窗中的关闭按钮
             close_btn = page.ele('x://div[@class="_ymcart_subscribe_popup subscribe_step_2"]/div[@class="subscribe_popup_con"]/span[@class="subscribe_popup_con_close"][1]', timeout=3)
             if close_btn:
                 print("Closing subscribe popup...")
@@ -45,7 +45,7 @@ class CandidateSpider(BaseSpider):
             co = ChromiumOptions()
             co.auto_port()
             co.set_argument('--no-sandbox')
-            co.headless(False)  # 可改为 False 调试
+            co.headless(False)  
             co.set_argument('--disable-blink-features=AutomationControlled')
             co.set_argument('--disable-gpu')
             co.set_argument('--window-size=1920,1080')
@@ -64,7 +64,7 @@ class CandidateSpider(BaseSpider):
         page = self._get_browser()
         page.get(url)
 
-        # 等待页面基础框架加载（body 出现）
+        # 等待页面基础框架加载
         try:
             page.ele('body', timeout=15)
         except:
@@ -73,13 +73,13 @@ class CandidateSpider(BaseSpider):
         # 关闭可能出现的订阅弹窗
         self._close_subscribe_popup(page)
 
-        # 等待页面主体出现（原逻辑）
+        # 等待页面主体出现
         try:
             page.ele('#body_box', timeout=30)
         except Exception:
             page.ele('body', timeout=15)
 
-        # 检测挑战页面（原逻辑）
+        # 检测挑战页面
         if "请稍候" in page.html or "challenge" in page.html.lower():
             print(f"Challenge detected for {url}, refreshing...")
             page.refresh()
@@ -97,7 +97,7 @@ class CandidateSpider(BaseSpider):
             headers={},
         )
 
-    # 在析构或爬虫结束时关闭浏览器（可选）
+    # 在析构或爬虫结束时关闭浏览器
     def __del__(self):
         if self._browser:
             self._browser.close()
